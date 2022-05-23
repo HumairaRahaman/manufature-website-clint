@@ -1,0 +1,44 @@
+[
+  {
+    "id": "1",
+    "name": "Piter",
+    "reviews": "These battery-powered headphones use electronic circuitry to eliminate or at least reduce unwanted noise.",
+    "img": "image/male1.jpeg",
+    "rating": "⭐⭐⭐⭐⭐"
+  },
+  {
+    "id": "2",
+    "name": "Lina",
+    "reviews": "Some models let you turn off noise reduction and will work without batteries; others work only.",
+    "img": "image/female1.jpeg",
+    "rating": "⭐⭐⭐"
+  },
+  {
+    "id": "3",
+    "name": "Joye",
+    "reviews": "Ok, so I think these are a good beta test, but not quite there. I've bought these because my Kickstart purchase.",
+    "img": "image/female2.jpeg",
+    "rating": "⭐⭐⭐⭐"
+  },
+  {
+    "id": "4",
+    "name": "Anan",
+    "reviews": "Ok guys, here is a completely unbiased, 100% honest review. I did NOT receive these for free.",
+    "img": "image/male2.jpeg",
+    "rating": "⭐⭐⭐⭐⭐"
+  },
+  {
+    "id": "5",
+    "name": "Poker",
+    "reviews": "I've been looking at wireless earbuds through kick starter campaigns for some time now comparing specs and prices.",
+    "img": "image/male3.jpeg",
+    "rating": "⭐⭐⭐⭐"
+  },
+  {
+    "id": "6",
+    "name": "Alex",
+    "reviews": "Ok, so I think these are a good beta test, but not quite there. I've bought these because my Kickstart purchase.",
+    "img": "image/female4.jpeg",
+    "rating": "⭐⭐⭐"
+  }
+]

@@ -4,7 +4,7 @@ const useProductDetails = (productId) => {
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    const url = `https://sleepy-gorge-09017.herokuapp.com/products/${productId}`;
+    const url = `http://localhost:5000/products/${productId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProduct(data));
