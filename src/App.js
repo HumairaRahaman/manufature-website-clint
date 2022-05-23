@@ -6,6 +6,7 @@ import Login from "./components/Login/Login"
 import RequireAdmin from "./components/Login/RequireAdmin"
 import RequireAuth from "./components/Login/RequireAuth"
 import SignUp from "./components/Login/SignUp"
+import AddProduct from "./components/Pages/Dashboard/AddProduct"
 import AddReview from "./components/Pages/Dashboard/AddReview"
 import AllOrders from "./components/Pages/Dashboard/AllOrders"
 import Dashboard from "./components/Pages/Dashboard/Dashboard"
@@ -72,7 +73,7 @@ const App = () => {
             path="addProduct"
             element={
               <RequireAdmin>
-                <AllOrders></AllOrders>
+                <AddProduct></AddProduct>
                </RequireAdmin>
             }
           ></Route>
