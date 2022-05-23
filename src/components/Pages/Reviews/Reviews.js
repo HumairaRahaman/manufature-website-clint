@@ -16,10 +16,10 @@ const Reviews = ({ review }) => {
           </div>
 
           <span className=" text-gray-600 font-medium">{name}</span>
-          <span className=" text-gray-400 text-lg">{rating}</span>
+          <span className=" text-gray-400 text-lg">{rating}<span>⭐</span></span>
           <div className="  overflow-hidden">
             <span className=" text-gray-400 text-lg">
-              {reviews.length > 80 ? reviews.slice(0, 80) + "..." : reviews}
+              {reviews?.length > 80 ? reviews?.slice(0, 80) + "..." : reviews}
             </span>
           </div>
         </div>

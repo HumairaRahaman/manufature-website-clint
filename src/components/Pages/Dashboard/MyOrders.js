@@ -46,10 +46,10 @@ const MyOrders = () => {
             <tr>
               <th></th>
               <th>Name</th>
-              
-              
               <th>Quantity</th>
               <th>Price</th>
+              
+              
               <th>Payment</th>
             </tr>
           </thead>
@@ -60,8 +60,8 @@ const MyOrders = () => {
                 <th>{index + 1}</th>
                 <td>{userOrder.product}</td>
                
-                <td>{userOrder.price}</td>
                 <td>{userOrder.orderQuantity}</td>
+                <td>{userOrder.price}</td>
                 <td>
                   {userOrder.price && !userOrder.paid && (
                     <Link to={`/dashboard/payment/${userOrder._id}`}>

@@ -10,9 +10,9 @@ const AddReview = () => {
     reset,
   } = useForm();
 
-  //   const { data: services, isLoading } = useQuery("services", () =>
-  //     fetch("").then((res) => res.json())
-  //   );
+    // const { data: services, isLoading } = useQuery("services", () =>
+    //   fetch("").then((res) => res.json())
+    // );
   const imageStorageKey = "8bd264bafc0b0611019d6605a1603736";
 
   const onSubmit = async (data) => {
@@ -28,30 +28,31 @@ const AddReview = () => {
       .then((result) => {
         if (result.success) {
           const img = result.data.url;
-          const doctor = {
+          const review = {
             name: data.name,
             email: data.email,
-            specialty: data.specialty,
+            rating: data.rating,
+            reviews: data.reviews,
             img: img,
           };
 
           //send to your database
 
-          fetch("", {
+          fetch("http://localhost:5000/review", {
             method: "POST",
             headers: {
               "content-type": "application/json",
               authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
-            body: JSON.stringify(doctor),
+            body: JSON.stringify(review),
           })
             .then((res) => res.json())
             .then((inserted) => {
               if (inserted.insertedId) {
-                toast.success("Doctor Added Successfully!");
+                toast.success("Review Added Successfully!");
                 reset();
               } else {
-                toast.error("Failed to add the Doctor");
+                toast.error("Failed to add the Review");
               }
             });
         }
@@ -147,7 +148,7 @@ const AddReview = () => {
             <span className="label-text">Your Comments</span>
           </label>
           <textarea
-            {...register("comments", {
+            {...register("reviews", {
               required: {
                 value: true,
                 message: "Comments is Required",
