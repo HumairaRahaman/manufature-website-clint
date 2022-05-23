@@ -9,7 +9,7 @@ import SignUp from "./components/Login/SignUp"
 import AddReview from "./components/Pages/Dashboard/AddReview"
 import Dashboard from "./components/Pages/Dashboard/Dashboard"
 import ManageDoctors from "./components/Pages/Dashboard/ManageDoctors"
-import MyAppointments from "./components/Pages/Dashboard/MyAppointments"
+import MyOrders from "./components/Pages/Dashboard/MyOrders"
 import MyProfile from "./components/Pages/Dashboard/MyProfile"
 import Payment from "./components/Pages/Dashboard/Payment"
 import Users from "./components/Pages/Dashboard/Users"
@@ -46,7 +46,7 @@ const App = () => {
             </RequireAuth>
           }
         >
-          <Route index element={<MyAppointments></MyAppointments>}></Route>
+          <Route index element={<MyOrders></MyOrders>}></Route>
           
           <Route path="history" element={<MyProfile></MyProfile>}></Route>
           <Route path="review" element={<AddReview></AddReview>}></Route>

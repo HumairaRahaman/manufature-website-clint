@@ -5,34 +5,50 @@ import { toast } from 'react-toastify'
 import auth from '../../../firebase.init'
 
 const AddUserInfo = ({product}) => {
-    const { o_quantity,a_quantity } = product;
+    const {_id, o_quantity,a_quantity,name,price } = product;
     const [user] = useAuthState(auth);
     const { register, handleSubmit,reset } = useForm();
 
     const onSubmit = (data,e) =>{
-        const url = ``;
+        e.preventDefault();
+        const orderQuantity = data.order;
+
+        const userOrder ={
+            orderId: _id,
+            product: name,
+            orderQuantity,
+            price,
+            user: user.email,
+            userName: user.displayName,
+            phone: data.phone,
+
+        };
+        const url =`http://localhost:5000/order`;
         fetch(url,{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(userOrder)
         })
         .then(res=>res.json())
         .then(result=>{
             console.log(result);
-            
+            if((data.order > a_quantity && data.order < o_quantity ) ||data.order > a_quantity || data.order < o_quantity ){
+                toast.error("plz Input the write value", { position: toast.POSITION.TOP_CENTER,autoClose: 4000 })
+                return
+                
+            }
+            else{
+                toast.info("Add your product Successfully", { position: toast.POSITION.TOP_CENTER,autoClose: 4000 })
+            }
         })
 
-        if((data.order > a_quantity && data.order < o_quantity ) ||data.order > a_quantity || data.order < o_quantity ){
-            toast.error("plz Input the write value", { position: toast.POSITION.TOP_CENTER,autoClose: 4000 })
-            console.log(typeof(data.order))
-            
-        }
+       
       console.log(data)
       e.target.reset();
     //toast
-    toast.info("Add your product Successfully", { position: toast.POSITION.TOP_CENTER,autoClose: 4000 })
+   
     };
 
     return (

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import {
   useCreateUserWithEmailAndPassword,
 
@@ -33,13 +33,13 @@ const SignUp = () => {
 
   const navigate = useNavigate()
   //
-  useEffect(() => {
+ 
     if (token) {
       
-      navigate('/');
+      navigate('/products');
     }
     
-  }, [token]);
+
   let signInError;
   if (loading || gLoading) {
     return <Spinner></Spinner>;
@@ -58,6 +58,7 @@ const SignUp = () => {
    await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
     console.log('updated');
+    // navigate('/products');
     
   };
   return (

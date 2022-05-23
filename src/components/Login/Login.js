@@ -12,8 +12,6 @@ import Spinner from "../Local/Spinner/Spinner"
 const Login = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 
-
-
   const {
     register,
     formState: { errors },
@@ -21,24 +19,19 @@ const Login = () => {
   } = useForm();
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-const [token] = useToken(user || gUser)
+  const [token] = useToken(user || gUser);
 
-    let navigate = useNavigate();
-    let location = useLocation();
+  let navigate = useNavigate();
+  let location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
-  
   useEffect(() => {
     if (token) {
       navigate(from, { replace: true });
     }
   }, [token, from, navigate]);
 
-
   let signInError;
-
-
-
 
   if (loading || gLoading) {
     return <Spinner></Spinner>;
@@ -52,8 +45,6 @@ const [token] = useToken(user || gUser)
     );
   }
   const onSubmit = (data) => {
-   
-
     signInWithEmailAndPassword(data.email, data.password);
   };
 

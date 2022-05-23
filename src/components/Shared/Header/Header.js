@@ -10,6 +10,7 @@ const Header = () => {
 
   const handelSignOut = () => {
     signOut(auth);
+    localStorage.removeItem('accessToken');
   };
   const handelSignIn = () => {
     navigate("/login");
