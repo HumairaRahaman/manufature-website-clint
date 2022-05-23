@@ -7,8 +7,9 @@ import RequireAdmin from "./components/Login/RequireAdmin"
 import RequireAuth from "./components/Login/RequireAuth"
 import SignUp from "./components/Login/SignUp"
 import AddReview from "./components/Pages/Dashboard/AddReview"
+import AllOrders from "./components/Pages/Dashboard/AllOrders"
 import Dashboard from "./components/Pages/Dashboard/Dashboard"
-import ManageDoctors from "./components/Pages/Dashboard/ManageDoctors"
+import ManageProducts from "./components/Pages/Dashboard/ManageProducts"
 import MyOrders from "./components/Pages/Dashboard/MyOrders"
 import MyProfile from "./components/Pages/Dashboard/MyProfile"
 import Payment from "./components/Pages/Dashboard/Payment"
@@ -56,15 +57,31 @@ const App = () => {
             element={
               <RequireAdmin>
                 <Users></Users>
-              </RequireAdmin>
+               </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="allOrders"
+            element={
+              <RequireAdmin>
+                <AllOrders></AllOrders>
+               </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="addProduct"
+            element={
+              <RequireAdmin>
+                <AllOrders></AllOrders>
+               </RequireAdmin>
             }
           ></Route>
           
           <Route
-            path="manageDoctor"
+            path="manageProduct"
             element={
               <RequireAdmin>
-                <ManageDoctors></ManageDoctors>
+                <ManageProducts></ManageProducts>
               </RequireAdmin>
             }
           ></Route>

@@ -33,10 +33,13 @@ const Dashboard = () => {
             <Link to="/dashboard/users">All Users</Link>
           </li>
           <li className="hover:bg-secondary font-semibold hover:text-white hover:rounded">
-            <Link to="/dashboard/addDoctor">Add a Doctor</Link>
+            <Link to="/dashboard/allOrders">All Orders</Link>
           </li>
           <li className="hover:bg-secondary font-semibold hover:text-white hover:rounded">
-            <Link to="/dashboard/manageDoctor">Manage Doctors</Link>
+            <Link to="/dashboard/addProduct">Add Product</Link>
+          </li>
+          <li className="hover:bg-secondary font-semibold hover:text-white hover:rounded">
+            <Link to="/dashboard/manageProduct">Manage Products</Link>
           </li>
 
          </>}
