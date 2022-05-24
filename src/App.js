@@ -51,6 +51,7 @@ const App = () => {
           <Route index element={<MyOrders></MyOrders>}></Route>
           
           <Route path="history" element={<MyProfile></MyProfile>}></Route>
+          <Route path="payment/:id" element={<Payment></Payment>}></Route>
           <Route path="review" element={<AddReview></AddReview>}></Route>
           <Route path="payment/:id" element={<Payment></Payment>}></Route>
           <Route

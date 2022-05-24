@@ -21,7 +21,7 @@ const ProductCard = ({ product }) => {
         </div>
         <div className="flex justify-between ">
           <span className=" font-bold text-transparent bg-clip-text bg-gradient-to-br from-gray-500 to-amber-500 text-center cursor-pointer text-gray-600">{name}</span>
-          <span className="  font-bold text-transparent bg-clip-text bg-gradient-to-br from-gray-500 to-amber-500 text-center cursor-pointer"> Price: {price}Taka</span>
+          <span className="  font-bold text-transparent bg-clip-text bg-gradient-to-br from-gray-500 to-amber-500 text-center cursor-pointer"> Price: ${price}Taka</span>
         </div>
         <div className="  overflow-hidden">
         <span className=" text-gray-400 text-lg">{description.length>180 ? description.slice(0,180) + '...' : description}</span>

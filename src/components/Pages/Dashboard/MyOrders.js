@@ -1,39 +1,38 @@
-import { signOut } from "firebase/auth"
-import React, { useEffect, useState } from "react"
-import { useAuthState } from "react-firebase-hooks/auth"
-import { Link, useNavigate } from "react-router-dom"
-import auth from "../../../firebase.init"
+import React from "react"
+import { Link } from "react-router-dom"
+import useMyOrder from "../../../hooks/useMyOrder"
 
 const MyOrders = () => {
-  const [userOrders, setUserOrders] = useState([]);
+  const [myOrders, setMyOrders] = useMyOrder()
+  // const [userOrders, setUserOrders] = useState([]);
   
-  const [user] = useAuthState(auth);
+  // const [user] = useAuthState(auth);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    if (user) {
-      fetch(`http://localhost:5000/order?user=${user.email}`, {
-        method: "GET",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      })
-        .then((res) => {
-          console.log("res", res);
-          if (res.status === 401 || res.status === 403) {
-            signOut(auth);
-            localStorage.removeItem("accessToken");
-            navigate("/");
-          }
+  // useEffect(() => {
+  //   if (user) {
+  //     fetch(`http://localhost:5000/orders?user=${user.email}`, {
+  //       method: "GET",
+  //       headers: {
+  //         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  //       },
+  //     })
+  //       .then((res) => {
+  //         console.log("res", res);
+  //         if (res.status === 401 || res.status === 403) {
+  //           signOut(auth);
+  //           localStorage.removeItem("accessToken");
+  //           navigate("/");
+  //         }
 
-          return res.json();
-        })
-        .then((data) => {
-          setUserOrders(data);
-        });
-    }
-  }, [user]);
+  //         return res.json();
+  //       })
+  //       .then((data) => {
+  //         setUserOrders(data);
+  //       });
+  //   }
+  // }, [user]);
   return (
     <div>
       {/* <h2>MyAppointments: {appointments.length}</h2> */}
@@ -55,20 +54,20 @@ const MyOrders = () => {
           </thead>
           <tbody>
             {/* <!-- row 1 --> */}
-            {userOrders.map((userOrder, index) => (
-              <tr key={userOrder._id}>
+            {myOrders.map((myOrder, index) => (
+              <tr key={myOrder._id}>
                 <th>{index + 1}</th>
-                <td>{userOrder.product}</td>
+                <td>{myOrder.product}</td>
                
-                <td>{userOrder.orderQuantity}</td>
-                <td>{userOrder.price}</td>
+                <td>{myOrder.orderQuantity}</td>
+                <td>${myOrder.price}</td>
                 <td>
-                  {userOrder.price && !userOrder.paid && (
-                    <Link to={`/dashboard/payment/${userOrder._id}`}>
+                  {myOrder.price && !myOrder.paid && (
+                    <Link to={`/dashboard/payment/${myOrder._id}`}>
                       <button className=" btn btn-xs btn-success">Pay</button>
                     </Link>
                   )}
-                  {userOrder.price && userOrder.paid && (
+                  {myOrder.price && myOrder.paid && (
                     <div>
                       <p>
                         <span className=" text-success">Paid</span>
@@ -76,7 +75,7 @@ const MyOrders = () => {
                       <p>
                         Transaction id:{" "}
                         <span className=" text-success">
-                          {userOrder.transactionId}
+                          {myOrder.transactionId}
                         </span>{" "}
                       </p>
                     </div>

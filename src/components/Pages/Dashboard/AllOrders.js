@@ -3,6 +3,7 @@ import useOrder from '../../../hooks/useOrder'
 import AllOrderCard from './AllOrderCard'
 
 const AllOrders = () => {
+  
     const [orders,setOrders] = useOrder()
     return (
         <div>
@@ -21,6 +22,7 @@ const AllOrders = () => {
             {orders.map((order, index) => (
               <AllOrderCard  index={index}  key={order._id} order={order}></AllOrderCard>
             ))}
+           
           </tbody>
         </table>
       </div>

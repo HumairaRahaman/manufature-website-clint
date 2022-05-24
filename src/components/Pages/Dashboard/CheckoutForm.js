@@ -1,7 +1,7 @@
-import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js"
-import React, { useEffect, useState } from "react"
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import React, { useEffect, useState } from "react";
 
-const CheckoutForm = ({ appointment }) => {
+const CheckoutForm = ({ order }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [cardError, setCardError] = useState("");
@@ -10,7 +10,8 @@ const CheckoutForm = ({ appointment }) => {
   const [transactionId, setTransactionId] = useState("");
   const [clientSecret, setClientSecret] = useState("");
 
-  const {_id, price, patient, patientName } = appointment;
+  const { _id, price, userName, user } = order;
+ 
 
   useEffect(() => {
     fetch("http://localhost:5000/create-payment-intent", {
@@ -23,7 +24,7 @@ const CheckoutForm = ({ appointment }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.clientSecret) {
+        if (data?.clientSecret) {
           setClientSecret(data.clientSecret);
         }
       });
@@ -55,29 +56,28 @@ const CheckoutForm = ({ appointment }) => {
         payment_method: {
           card: card,
           billing_details: {
-            name: patientName,
-            email: patient,
+            name: userName,
+            email: user,
           },
         },
       });
 
-      if(intentError){
-          setCardError(intentError?.message);
-          setProcessing(false);
-      }
-      else{
-          setCardError('');
-          setTransactionId(paymentIntent.id);
-          console.log(paymentIntent);
-          setSuccess(' Congratulation! Your payment is completed.');
+    if (intentError) {
+      setCardError(intentError?.message);
+      setProcessing(false);
+    } else {
+      setCardError("");
+      setTransactionId(paymentIntent.id);
+      console.log(paymentIntent);
+      setSuccess(" Congratulation! Your payment is completed.");
 
-          //store payment on database
-const payment = {
-    appointment: _id,
-    transactionId: paymentIntent.id,
-}
+      //store payment on database
+      const payment = {
+        order: _id,
+        transactionId: paymentIntent.id,
+      };
 
-          fetch(`http://localhost:5000/booking/${_id}`,{
+          fetch(`http://localhost:5000/orders/${_id}`,{
               method: 'PATCH',
               headers: {
                 "content-type": "application/json",
@@ -90,7 +90,7 @@ const payment = {
               setProcessing(false)
               console.log(data);
           })
-      }
+    }
   };
   return (
     <>
@@ -114,16 +114,21 @@ const payment = {
         <button
           className="btn btn-success btn-sm text-white mt-4"
           type="submit"
-          disabled={!stripe || !clientSecret || success}
+          disabled={!stripe || !clientSecret }
         >
           Pay
         </button>
       </form>
       {cardError && <p className=" text-red-500">{cardError}</p>}
-      {success && <div className=" text-green-500">
+      {success && (
+        <div className=" text-green-500">
           <p>{success}</p>
-          <p>Your transaction Id: <span className="text-orange-500 font-bold">{transactionId}</span></p>
-          </div>}
+          <p>
+            Your transaction Id:{" "}
+            <span className="text-orange-500 font-bold">{transactionId}</span>
+          </p>
+        </div>
+      )}
     </>
   );
 };
