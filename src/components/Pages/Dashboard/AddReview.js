@@ -1,8 +1,11 @@
 import React from "react"
+import { useAuthState } from "react-firebase-hooks/auth"
 import { useForm } from "react-hook-form"
 import { toast } from "react-toastify"
+import auth from "../../../firebase.init"
 
 const AddReview = () => {
+  const [user] = useAuthState(auth)
   const {
     register,
     formState: { errors },
@@ -57,15 +60,17 @@ const AddReview = () => {
       });
   };
   return (
-    <div className=" flex mt-11 bg-gray-300 py-5">
+    <div className="bg-cyan-50 px-8 md:px-0 flex mx-12 md:mx-28 lg:mb-28 mb-64 rounded shadow-lg  py-8">
       <div className="mx-auto">
-        <h2 className="text-2xl">Add Review</h2>
+        <h2 className="text-2xl text-center">Add Review</h2>
         <form className="" onSubmit={handleSubmit(onSubmit)}>
           <div className="form-control w-full max-w-xs">
             <label className="label">
               <span className="label-text">Name</span>
             </label>
             <input
+            readOnly
+            value={user.displayName}
               {...register("name", {
                 required: {
                   value: true,
@@ -90,6 +95,8 @@ const AddReview = () => {
               <span className="label-text">Email</span>
             </label>
             <input
+             readOnly
+             value={user.email}
               {...register("email", {
                 required: {
                   value: true,
@@ -123,7 +130,7 @@ const AddReview = () => {
               <span className="label-text">Rating</span>
             </label>
             <input
-              {...register("price", {
+              {...register("rating", {
                 required: {
                   value: true,
                   message: "Rating is Required",
@@ -189,9 +196,9 @@ const AddReview = () => {
           </div>
 
           <input
-            className="btn w-full max-w-xs text-white font-semibold bg-cyan-300 border-0 hover:bg-cyan-600"
+            className="btn my-8 w-full max-w-xs text-white font-semibold bg-cyan-300 border-0 hover:bg-cyan-600"
             type="submit"
-            value="Add"
+            value="Add Review"
           />
         </form>
       </div>

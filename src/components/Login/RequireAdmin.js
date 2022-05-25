@@ -6,7 +6,7 @@ import auth from '../../firebase.init'
 import useAdmin from '../../hooks/useAdmin'
 import Spinner from '../Local/Spinner/Spinner'
 
-const RequireAdmin = ({children}) => {
+const RequireAdmin = ({ children}) => {
     const [user, loading] = useAuthState(auth);
     const [admin,adminLoading] = useAdmin(user);
     const location = useLocation();

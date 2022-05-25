@@ -6,15 +6,15 @@ const AllOrders = () => {
   
     const [orders,setOrders] = useOrder()
     return (
-        <div>
+        <div className=' mx-9'>
          <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
             <tr>
               <th></th>
               <th>Name</th>
-              <th>orderQuantity</th>
-              <th>price</th>
+              <th className=" sm:table-cell hidden">orderQuantity</th>
+              <th className=" lg:table-cell hidden">price</th>
               <th></th>
             </tr>
           </thead>

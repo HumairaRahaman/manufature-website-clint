@@ -4,75 +4,142 @@ import { useAuthState } from "react-firebase-hooks/auth"
 import { NavLink, useNavigate } from "react-router-dom"
 import auth from "../../../firebase.init"
 
-const Header = () => {
+const Header = ({ children }) => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
   const handelSignOut = () => {
     signOut(auth);
-    localStorage.removeItem('accessToken');
+    localStorage.removeItem("accessToken");
   };
   const handelSignIn = () => {
     navigate("/login");
   };
   return (
-    <div className=" z-10 sticky top-0 bg-white md:mb-0 lg:mb-0 xl:mb-0  px-4 py-4 md:px-12 lg:px-12 xl:px-12 md:py-6 lg:py-6 xl:py-6 flex justify-center shadow-lg">
-      <div className=" flex gap-2 md:gap-4 lg:gap-4 xl:gap-4 text-xs md:text-xl lg:text-xl xl:text-xl">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/blogs">Blogs</NavLink>
-        <NavLink to="/reviews">Reviews</NavLink>
-        <NavLink to="/products">Products</NavLink>
+    <div className="drawer drawer-end">
+      <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
+      <div className="drawer-content flex flex-col">
+        <div className="w-full flex justify-between navbar bg-base-100 fixed top-0 z-50 lg:px-20">
+          <div className="flex-none lg:hidden">
+            <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="inline-block w-6 h-6 stroke-current"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </label>
+          </div>
 
-        {user && (
-          <>
-            <NavLink to="/myItem">MyItem</NavLink>
+          <div className="flex-none hidden lg:block">
+            <ul className="menu menu-horizontal gap-x-2">
+              <li>
+                <NavLink to="/" className=" rounded-lg">
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/blogs" className=" rounded-lg">
+                  Blogs
+                </NavLink>
+              </li>
+              {/* <li>
+                <NavLink to="/reviews" className=" rounded-lg">
+                  Reviews
+                </NavLink>
+              </li> */}
+              <li>
+                <NavLink to="/products" className=" rounded-lg">
+                  Products
+                </NavLink>
+              </li>
+              {user && (
+                <>
+                  {" "}
+                  <li>
+                    <NavLink to="/myPortfolio" className=" rounded-lg">
+                      MyPortfolio
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/dashboard" className=" rounded-lg">
+                      Dashboard
+                    </NavLink>
+                  </li>
+                </>
+              )}
+            </ul>
+          </div>
+          <div className="flex-end px-2 mx-2 text-2xl">
+            {user ? (
+              <>
+                <p className=" font-bold text-amber-600">{user.displayName}</p>
+                <button
+                  onClick={handelSignOut}
+                  className=" md:px-2 md:py-1 px-3 py-1 shadow-xl ml-3 text-white text-sm   bg-primary  rounded-full"
+                >
+                  signOut
+                </button>
+              </>
+            ) : (
+              <button
+                onClick={handelSignIn}
+                className=" md:p-1 shadow-xl text-white text-sm ml-3   bg-primary  rounded-full"
+              >
+                signIn
+              </button>
+            )}
+          </div>
+        </div>
 
-            <NavLink to="/addItem">AddItem</NavLink>
-           
-        <NavLink to='/dashboard'>Dashboard</NavLink>
-          </>
-        )}
-        {user ? (
-          <button
-            onClick={handelSignOut}
-            className=" md:p-1 shadow-xl text-white    bg-gradient-to-l from-slate-500 via-orange-500 to-amber-600 hover:bg-gradient-to-r hover:from-slate-500 hover:via-orange-400 hover:to-amber-300 rounded"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6  w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-              />
-            </svg>
-          </button>
-        ) : (
-          <button
-            onClick={handelSignIn}
-            className=" md:p-1 shadow-xl text-white    bg-gradient-to-l from-slate-500 via-orange-500 to-amber-600 hover:bg-gradient-to-r hover:from-slate-500 hover:via-orange-400 hover:to-amber-300 rounded"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
-              />
-            </svg>
-          </button>
-        )}
+        {children}
+      </div>
+      <div className="drawer-side">
+        <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
+        <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
+          <li>
+            <NavLink to="/" className=" rounded-lg">
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/blogs" className=" rounded-lg">
+              Blogs
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/reviews" className=" rounded-lg">
+              Reviews
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/products" className=" rounded-lg">
+              Products
+            </NavLink>
+          </li>
+          {user && (
+            <>
+              {" "}
+              <li>
+                <NavLink to="/myPortfolio" className=" rounded-lg">
+                  MyPortfolio
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard" className=" rounded-lg">
+                  Dashboard
+                </NavLink>
+              </li>
+            </>
+          )}
+        </ul>
       </div>
     </div>
   );

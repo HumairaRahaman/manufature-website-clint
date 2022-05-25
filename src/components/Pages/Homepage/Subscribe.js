@@ -3,7 +3,7 @@ import React from 'react'
 const Subscribe = () => {
     return (
         <div className="2xl:mx-auto 2xl:container mx-4 py-16 ">
-      <div className=" mx-6 flex items-center justify-center rounded-lg  bg-gradient-to-r from-blue-100 to-cyan-300 ">
+      <div className=" mx-6 flex items-center justify-center rounded-lg  bg-gradient-to-r from-blue-100 to-amber-200 ">
      
         <div className="bg-cyan-100 shadow-xl shadow-cyan-400 bg-opacity-20 md:my-12 lg:py-16 py-10 w-full md:mx-10 md:px-12 px-4 flex flex-col items-center justify-center  ">
           <h1 className="pb-2 text-3xl md:text-4xl lg:text-4xl xl:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-500 to-cyan-500 text-center mb-4 cursor-pointe">

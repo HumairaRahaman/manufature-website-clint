@@ -1,5 +1,5 @@
-import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import React, { useEffect, useState } from "react";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js"
+import React, { useEffect, useState } from "react"
 
 const CheckoutForm = ({ order }) => {
   const stripe = useStripe();
@@ -10,7 +10,7 @@ const CheckoutForm = ({ order }) => {
   const [transactionId, setTransactionId] = useState("");
   const [clientSecret, setClientSecret] = useState("");
 
-  const { _id, price, userName, user } = order;
+  const { _id, price, userName, user,orderStatus } = order;
  
 
   useEffect(() => {
@@ -72,9 +72,13 @@ const CheckoutForm = ({ order }) => {
       setSuccess(" Congratulation! Your payment is completed.");
 
       //store payment on database
+      let newStatus = orderStatus;
+      newStatus = "paid"
       const payment = {
         order: _id,
         transactionId: paymentIntent.id,
+        orderStatus: newStatus ,
+
       };
 
           fetch(`http://localhost:5000/orders/${_id}`,{

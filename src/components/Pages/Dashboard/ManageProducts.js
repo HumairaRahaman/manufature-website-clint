@@ -26,7 +26,7 @@ const ManageProducts = () => {
       }
     };
     return (
-        <div>
+        <div className='mx-8 lg:mb-8 mb-64'>
          <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
@@ -34,7 +34,7 @@ const ManageProducts = () => {
               <th></th>
               <th>Name</th>
               <th>orderQuantity</th>
-              <th>price</th>
+              <th className="xs:table-cell hidden">price</th>
               <th>Image</th>
               <th></th>
             </tr>

@@ -9,9 +9,9 @@ const ProductCard = ({ product }) => {
         navigate(`/purchase/${id}`)
     }
     return (
-        <div>
-            <div className="bg-gray-100 mb-8  md:mb-0 lg:mb-0 xl:mb-0 shadow-lg  shadow-gray-100 rounded-2xl  bd-white py-4 sm:p-0 p-4">
-      <div className=" flex flex-col gap-4 justify-between mx-4">
+        <div className=''>
+            <div className="bg-gray-300 mb-8  md:mb-0 lg:mb-0 xl:mb-0 shadow-lg  shadow-gray-100 rounded-2xl  bd-white py-8 sm:p-0 p-4">
+      <div className=" flex flex-col py-5 gap-4 justify-between mx-4">
         <div className=" flex-shrink-0 mx-auto items-center flex">
           <img
             className="mx-auto  object-cover rounded-lg bg-cover py-0 sm:py-4  w-full h-64 "
@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
           <span className="  font-bold text-transparent bg-clip-text bg-gradient-to-br from-gray-500 to-amber-500 text-center cursor-pointer"> Price: ${price}Taka</span>
         </div>
         <div className="  overflow-hidden">
-        <span className=" text-gray-400 text-lg">{description.length>180 ? description.slice(0,180) + '...' : description}</span>
+        <span className=" text-gray-400 text-lg">{description.length>100 ? description.slice(0,100) + '...' : description}</span>
  
         </div>
         <div className=" flex justify-between ">

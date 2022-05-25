@@ -12,6 +12,8 @@ import Spinner from "../Local/Spinner/Spinner"
 const Login = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 
+
+
   const {
     register,
     formState: { errors },
@@ -19,19 +21,24 @@ const Login = () => {
   } = useForm();
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-  const [token] = useToken(user || gUser);
+const [token] = useToken(user || gUser)
 
-  let navigate = useNavigate();
-  let location = useLocation();
+    let navigate = useNavigate();
+    let location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
+  
   useEffect(() => {
     if (token) {
       navigate(from, { replace: true });
     }
   }, [token, from, navigate]);
 
+
   let signInError;
+
+
+
 
   if (loading || gLoading) {
     return <Spinner></Spinner>;
@@ -45,11 +52,13 @@ const Login = () => {
     );
   }
   const onSubmit = (data) => {
+   
+
     signInWithEmailAndPassword(data.email, data.password);
   };
 
   return (
-    <div className=" flex h-screen justify-center items-center">
+    <div className=" flex h-screen  mt-24 mb-20 justify-center items-center">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className=" text-center font-semibold text-2xl">Login</h2>
@@ -123,7 +132,7 @@ const Login = () => {
             {signInError}
 
             <input
-              className="btn w-full max-w-xs text-white font-semibold"
+              className="btn w-full max-w-xs text-white bg-primary font-semibold"
               type="submit"
               value="Login"
             />
@@ -138,7 +147,7 @@ const Login = () => {
           <div className="divider">OR</div>
           <button
             onClick={() => signInWithGoogle()}
-            className="btn btn-outline btn-accent"
+            className="btn btn-outline btn-primary"
           >
             Continue With Google
           </button>

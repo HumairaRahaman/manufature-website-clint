@@ -31,32 +31,32 @@ const Purchase = () => {
       position: toast.POSITION.TOP_CENTER,
     });
   };
-  const updateHandelQuantity = async (id, event) => {
-    event.preventDefault();
+  // const updateHandelQuantity = async (id, event) => {
+  //   event.preventDefault();
 
-    let value = parseInt(inputRef.current.value);
-    if (value <= 0) {
-      toast.info("Please Insert the right value!", {
-        position: toast.POSITION.TOP_CENTER,
-      });
-      return;
-    }
-    //toast
-    toast.info("Update Your Quantity Successfully!", {
-      position: toast.POSITION.TOP_CENTER,
-    });
-    setProductQuantity(productQuantity + value);
-    console.log(value);
-    const url = `http://localhost:5000/products/${id}`;
-    fetch(url, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ quantity: -value }),
-    }).then((res) => res.json());
-    inputRef.current.value = "";
-  };
+  //   let value = parseInt(inputRef.current.value);
+  //   if (value <= 0) {
+  //     toast.info("Please Insert the right value!", {
+  //       position: toast.POSITION.TOP_CENTER,
+  //     });
+  //     return;
+  //   }
+  //   //toast
+  //   toast.info("Update Your Quantity Successfully!", {
+  //     position: toast.POSITION.TOP_CENTER,
+  //   });
+  //   setProductQuantity(productQuantity + value);
+  //   console.log(value);
+  //   const url = `http://localhost:5000/products/${id}`;
+  //   fetch(url, {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ quantity: -value }),
+  //   }).then((res) => res.json());
+  //   inputRef.current.value = "";
+  // };
   return (
     <div className="  gap-4 grid grid-cols-1 md:grid-rows-1 lg:grid-rows-1 xl:grid-rows-1 justify-items-center bg-gradient-to-t from-yellow-100 via-gray-300 to-amber-200">
         <div className=" z-0 rounded-lg w-full h-full  flex justify-end items-right">

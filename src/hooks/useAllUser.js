@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 const useAllUser = () => {
-    const [products, setProducts] = useState([])
+    const [users, setUsers] = useState([])
     
     
     
@@ -15,7 +15,7 @@ const useAllUser = () => {
       })
        .then(res=> res.json())
        .then(data => {
-           setProducts(data)
+        setUsers(data)
           
     }
           
@@ -23,7 +23,7 @@ const useAllUser = () => {
        )
         
     },[])
-    return [products,setProducts]
+    return [users,setUsers]
 }
 
 export default useAllUser

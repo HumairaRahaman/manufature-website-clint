@@ -2,6 +2,7 @@ import React from "react"
 import { Route, Routes } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import NotFound from "./components/Local/NotFound/NotFound"
 import Login from "./components/Login/Login"
 import RequireAdmin from "./components/Login/RequireAdmin"
 import RequireAuth from "./components/Login/RequireAuth"
@@ -16,6 +17,7 @@ import MyProfile from "./components/Pages/Dashboard/MyProfile"
 import Payment from "./components/Pages/Dashboard/Payment"
 import Users from "./components/Pages/Dashboard/Users"
 import Homepage from "./components/Pages/Homepage/Homepage"
+import MyPortfolio from "./components/Pages/MyPortfolio/MyPortfolio"
 import AllProduct from "./components/Pages/Product/AllProduct"
 import Purchase from "./components/Pages/Product/Purchase"
 import AllReviews from "./components/Pages/Reviews/AllReviews"
@@ -24,12 +26,14 @@ import Header from "./components/Shared/Header/Header"
 
 const App = () => {
   return (
-    <div className=" max-w-7xl mx-auto px-12 ">
-      <Header></Header>
+    <div className="  ">
+      <Header>
       <Routes>
         <Route path="/" element={<Homepage></Homepage>}></Route>
         <Route path='/reviews' element={<AllReviews></AllReviews>}></Route>
         <Route path='/products' element={<AllProduct></AllProduct>}></Route>
+        <Route path='/myPortfolio' element={<MyPortfolio></MyPortfolio>}></Route>
+
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
         <Route
@@ -48,9 +52,9 @@ const App = () => {
             </RequireAuth>
           }
         >
-          <Route index element={<MyOrders></MyOrders>}></Route>
+          <Route index element={<MyProfile></MyProfile>}></Route>
           
-          <Route path="history" element={<MyProfile></MyProfile>}></Route>
+          <Route path="myOrder" element={<MyOrders></MyOrders>}></Route>
           <Route path="payment/:id" element={<Payment></Payment>}></Route>
           <Route path="review" element={<AddReview></AddReview>}></Route>
           <Route path="payment/:id" element={<Payment></Payment>}></Route>
@@ -88,9 +92,12 @@ const App = () => {
             }
           ></Route>
         </Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
+      
       </Routes>
       <ToastContainer />
       <Footer></Footer>
+      </Header>
     </div>
   );
 };

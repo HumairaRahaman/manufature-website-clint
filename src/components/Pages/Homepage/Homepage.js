@@ -28,7 +28,7 @@ const Homepage = () => {
       <BusinessSummary></BusinessSummary>
 
       <div className=" mt-14 py-4 mx-8">
-        <h2 className="pb-6 text-3xl md:text-6xl lg:text-6xl xl:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-amber-500 to-gray-500 text-center mb-4 cursor-pointe">
+        <h2 className="pb-6 text-3xl md:text-6xl lg:text-6xl xl:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-500 to-cyan-500 text-center mb-4 cursor-pointe">
           My Products
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 justify-items-center">
@@ -41,38 +41,31 @@ const Homepage = () => {
             to="/products"
             className=" font-bold  py-4 px-14 text-gray-800 rounded-full rounded-tr-none bg-gradient-to-r from-slate-300 via-amber-200 to-gray-300 hover:bg-gradient-to-r hover:text-white hover:from-slate-400 hover:via-blue-400 hover:to-gray-400 "
           >
-            Manage Inventories
+            All Products
           </Link>
         </div>
       </div>
       <div className=" mt-14 py-4 mx-8">
-        <h2 className="pb-6 text-3xl md:text-6xl lg:text-6xl xl:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-amber-500 to-gray-500 text-center mb-4 cursor-pointe">
+        <h2 className="pb-6 text-3xl md:text-6xl lg:text-6xl xl:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-500 to-cyan-500  text-center mb-4 cursor-pointe">
           My Reviews
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 justify-items-center">
-          {reviews.slice(0, 3).map((review) => (
+          {reviews.map((review) => (
             <Reviews key={review._id} review={review}></Reviews>
           ))}
         </div>
 
-        <div className="flex items-center justify-center mt-8">
-          <Link
-            to="/reviews"
-            className=" font-bold  py-4 px-14 text-gray-800 rounded-full rounded-tr-none bg-gradient-to-r from-slate-300 via-amber-200 to-gray-300 hover:bg-gradient-to-r hover:text-white hover:from-slate-400 hover:via-blue-400 hover:to-gray-400 "
-          >
-            All Reviews
-          </Link>
-        </div>
+      
       </div>
 
       <div className="mt-14 py-4 mx-8">
-        <h2 className="pb-6 text-3xl md:text-6xl lg:text-6xl xl:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-amber-500 to-gray-500 text-center mb-4 cursor-pointe">
+        <h2 className="pb-6 text-3xl md:text-6xl lg:text-6xl xl:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-500 to-cyan-500  text-center mb-4 cursor-pointe">
           Recent Orders
         </h2>
         <RecentOrders></RecentOrders>
       </div>
       <div className="mt-14 py-4 mx-8">
-        <h2 className="pb-6  text-3xl md:text-6xl lg:text-6xl xl:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-amber-500 to-gray-500 text-center mb-4 cursor-pointe">
+        <h2 className="pb-6  text-3xl md:text-6xl lg:text-6xl xl:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-500 to-cyan-500  text-center mb-4 cursor-pointe">
           Shop By Brand
         </h2>
         <Brand></Brand>

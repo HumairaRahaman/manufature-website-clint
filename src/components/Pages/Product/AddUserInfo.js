@@ -39,6 +39,7 @@ const AddUserInfo = ({ product }) => {
         user: user.email,
         userName: user.displayName,
         phone: data.phone,
+        orderStatus: "",
       };
       const url = `http://localhost:5000/orders`;
       fetch(url, {

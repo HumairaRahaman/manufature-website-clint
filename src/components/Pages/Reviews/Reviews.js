@@ -5,7 +5,7 @@ const Reviews = ({ review }) => {
   return (
     <div>
      
-      <div className=" shadow-lg rounded-2xl w-[350px] bd-white p-4">
+      <div className=" shadow-lg rounded-2xl w-auto bd-white p-4">
         <div className="flex flex-col gap-3 justify-between items-center">
           <div className=" flex-shrink-0">
             <img

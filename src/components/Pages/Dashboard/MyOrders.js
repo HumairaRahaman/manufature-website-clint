@@ -57,28 +57,28 @@ const MyOrders = () => {
       {/* <h2>MyAppointments: {appointments.length}</h2> */}
 
       {/* table */}
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto mx-8">
         <table className="table w-full">
-          {/* <!-- head --> */}
+      
           <thead>
             <tr>
               <th></th>
               <th>Name</th>
-              <th>Quantity</th>
-              <th>Price</th>
+              <th className="lg:table-cell hidden ">Quantity</th>
+              <th className="hidden sm:table-cell">Price</th>
 
               <th>Payment</th>
             </tr>
           </thead>
           <tbody>
-            {/* <!-- row 1 --> */}
+           
             {myOrders.map((myOrder, index) => (
               <tr key={myOrder._id}>
                 <th>{index + 1}</th>
-                <td>{myOrder.product}</td>
+                <td className=" text-xs sm:text-md md:text-lg">{myOrder.product}</td>
 
-                <td>{myOrder.orderQuantity}</td>
-                <td>${myOrder.price}</td>
+                <td className=" lg:table-cell hidden ">{myOrder.orderQuantity}</td>
+                <td className="hidden sm:table-cell">${myOrder.price}</td>
                 <td>
                   {myOrder.price && !myOrder.paid && (
                     <>
@@ -120,12 +120,12 @@ const MyOrders = () => {
                       <p>
                         <span className=" text-success">Paid</span>
                       </p>
-                      {/* <p>
-                        Transaction id:{" "}
-                        <span className=" text-success">
+                      <p>
+                        Transaction id:
+                        <span className=" block text-2xs lg:text-xs lg:inline-flex text-success">
                           {myOrder.transactionId}
                         </span>{" "}
-                      </p> */}
+                      </p>
                     </div>
                   )}
                 </td>

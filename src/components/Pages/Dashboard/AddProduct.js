@@ -56,9 +56,9 @@ const AddProduct = () => {
           });
       };
     return (
-        <div className=" flex mt-11 bg-gray-300 py-5">
-        <div className="mx-auto">
-          <h2 className="text-2xl">Add Product</h2>
+        <div className=" bg-amber-50 flex mt-11 mx-7 md:mx-20 rounded-2xl shadow-lg mb-64 lg:mb-20 shadow-lime-50 py-5">
+        <div className="md:mx-auto mx-5  py-8">
+          <h2 className="text-2xl text-center">Add Product</h2>
           <form className="" onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control w-full max-w-xs">
               <label className="label">
@@ -234,9 +234,9 @@ const AddProduct = () => {
             </div>
   
             <input
-              className="btn w-full max-w-xs text-white font-semibold bg-cyan-300 border-0 hover:bg-cyan-600"
+              className="btn w-full my-4 max-w-xs text-white font-semibold bg-cyan-300 border-0 hover:bg-cyan-600"
               type="submit"
-              value="Add"
+              value="Add Product"
             />
           </form>
         </div>

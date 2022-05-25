@@ -21,15 +21,15 @@ const Users = () => {
 
   return (
     <div>
-      <h2> All Users: {users.length}</h2>
-      <div className="overflow-x-auto">
+     
+      <div className="overflow-x-auto mx-4">
         <table className="table w-full">
           <thead>
             <tr>
               <th></th>
               <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th></th>
+              
             </tr>
           </thead>
           <tbody>

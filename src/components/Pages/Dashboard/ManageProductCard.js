@@ -8,7 +8,7 @@ const ManageProductCard = ({ product, index, handelDelete }) => {
       <td>{name}</td>
 
       <td>{a_quantity}</td>
-      <td>{price}</td>
+      <td className="xs:table-cell hidden">${price}</td>
       <td>
         <div class="avatar">
           <div class="w-16 rounded">
@@ -21,7 +21,7 @@ const ManageProductCard = ({ product, index, handelDelete }) => {
       </td>
 
       <td>
-        <label htmlFor="delete-modal" className="btn btn-xs bg-red-600 ml-3">
+        <label htmlFor="delete-modal" className="btn btn-xs text-white bg-red-600 ml-3">
           Delete
         </label>
 
