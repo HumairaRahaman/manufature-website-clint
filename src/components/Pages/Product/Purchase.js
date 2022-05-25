@@ -60,12 +60,12 @@ const Purchase = () => {
   return (
     <div className="  gap-4 grid grid-cols-1 md:grid-rows-1 lg:grid-rows-1 xl:grid-rows-1 justify-items-center bg-gradient-to-t from-yellow-100 via-gray-300 to-amber-200">
         <div className=" z-0 rounded-lg w-full h-full  flex justify-end items-right">
-        <div class="collapse">
-          <input type="checkbox" class="peer" />
-          <div class="collapse-title bg-transparent text-primary text-xl font-bold  text-right ">
+        <div className="collapse">
+          <input type="checkbox" className="peer" />
+          <div className="collapse-title bg-transparent text-primary text-xl font-bold  text-right ">
             Add user Information
           </div>
-          <div class="collapse-content bg-transparent  ">
+          <div className="collapse-content bg-transparent  ">
             <AddUserInfo key={product._id} product={product}></AddUserInfo>
           </div>
         </div>

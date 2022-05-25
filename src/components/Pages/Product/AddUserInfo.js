@@ -9,9 +9,9 @@ const AddUserInfo = ({ product }) => {
   const [user] = useAuthState(auth);
   const { register, handleSubmit, reset } = useForm();
   const [inputOrder, setInputOrder] = useState({});
-  const [inputQuantity, setQuantity] = useState(0);
+  const [inputQuantity, setQuantity] = useState('');
 
-  console.log(inputOrder.order);
+  console.log(parseInt(inputQuantity));
 
   const handelValue = (e) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ const AddUserInfo = ({ product }) => {
     const orderQuantity = data.order;
     console.log(orderQuantity);
 
-    if (orderQuantity > a_quantity || orderQuantity < o_quantity) {
+    if (orderQuantity > a_quantity || orderQuantity < o_quantity ) {
       toast.error("plz Input the write value", {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 4000,
@@ -130,7 +130,9 @@ const AddUserInfo = ({ product }) => {
               {
                 // inputOrder?.order > a_quantity
                 parseInt(inputQuantity) < parseInt(o_quantity) ||
-                parseInt(inputQuantity) > parseInt(a_quantity) ? (
+                parseInt(inputQuantity) > parseInt(a_quantity) ||
+                inputQuantity === ''
+                 ? (
                   <input
                     disabled
                     className="font-bold  py-4 px-14 text-gray-800 rounded-full  bg-gray-400 "

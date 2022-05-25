@@ -1,8 +1,18 @@
-import React from "react"
+import React, { useState } from "react"
 
 const AllOrderCard = ({ order, index }) => {
-  const { product, orderQuantity, price} = order;
+  // const [value,setValue] = ([])
+  const [buttonText, setButtonText] = useState("pending");
+  const { product, orderQuantity, price } = order;
   console.log(order.paid);
+
+  //  const handelStatus = (e)=>{
+  //    e.preventDefault();
+  //   //  value = true;
+  //   setValue(e.target.value);
+
+  //   console.log(value);
+  //  }
   return (
     <tr>
       <th>{index + 1}</th>
@@ -16,26 +26,30 @@ const AllOrderCard = ({ order, index }) => {
           <button className=" btn btn-xs btn-success">Pay</button>
         </Link>
       )} */}
-      <td>{order.paid}
-      {order.price && !order.paid && (
-                   
-                      <button className=" btn btn-xs btn-success">unPaid</button>
-                    
-                  )}
-                    {order.price && order.paid && (
-                    <div>
-                      <p>
-                        <span className=" text-success">Pending</span>
-                      </p>
-                      {/* <p>
+      <td>
+        {order.paid}
+        {order.price && !order.paid && (
+          <button className=" btn btn-xs btn-success">unPaid</button>
+        )}
+        {order.price && order.paid && (
+          <div>
+            <p>
+              <span
+                onClick={() => setButtonText("shipping")}
+                className=" text-success"
+              >
+                {buttonText}
+              </span>
+            </p>
+
+            {/* <p>
                         Transaction id:{" "}
                         <span className=" text-success">
                           {order.transactionId}
                         </span>{" "}
                       </p> */}
-                    </div>
-                  )}
-
+          </div>
+        )}
       </td>
     </tr>
   );

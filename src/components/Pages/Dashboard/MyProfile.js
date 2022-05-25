@@ -6,16 +6,40 @@ import auth from '../../../firebase.init'
 
 const MyProfile = () => {
     const [user] = useAuthState(auth);
+    // const { userId } = useParams();
+    // const [info ] = useAllUser(userId)
+   
     const { register, handleSubmit,reset } = useForm();
 
+    // console.log(userId);
+
     const onSubmit = (data,e) =>{
-        const url = ``;
-        fetch(url,{
-            method: 'POST',
+      const email =user?.email;
+      const userName =user?.displayName;
+      const getAddress = data.address;
+      const getPhone = data.phone;
+      const getEducation = data.education;
+      const getLinkedIn = data.linkedIn;
+
+      const ownData = {
+        user: email,
+        name: userName,
+        address: getAddress,
+        phone:getPhone,
+        education: getEducation,
+        linkedIn: getLinkedIn,
+        
+      };
+      console.log(getAddress);
+
+      // if()
+        
+        fetch(`http://localhost:5000/user/${email}`,{
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(ownData)
         })
         .then(res=>res.json())
         .then(result=>{
@@ -23,7 +47,8 @@ const MyProfile = () => {
             
         })
 
-     
+        // setInfo(data)
+        
       console.log(data)
       e.target.reset();
     //toast
@@ -32,7 +57,9 @@ const MyProfile = () => {
     return (
         <div className=" justify-center items-center">
      
-
+       
+          
+       
         <form onSubmit={handleSubmit(onSubmit)} className="my-8">
           <div className="py-8 px-10 m-8 sm:m-0 sm:py-12 sm:px-12 bg-white  rounded-2xl shadow-xl ">
             <div>
@@ -61,28 +88,29 @@ const MyProfile = () => {
                 {...register("description",{ required: true})}
               /> */}
               <input
+             
               placeholder="Address"
                 className="block text-sm py-3 px-4  rounded-lg w-full border outline-none"
                 type="text"
-                {...register("address")}
+                {...register("address",{ required: true})}
               />
               <input
               placeholder="Phone"
                 className="block text-sm py-3 px-4  rounded-lg w-full border outline-none"
                 type="number"
-                {...register("phone")}
+                {...register("phone",{ required: true})}
               />
               <input
               placeholder="Last Education"
                 className="block text-sm py-3 px-4  rounded-lg w-full border outline-none"
                 type="text"
-                {...register("education",)}
+                {...register("education",{ required: true})}
               />
               <input
               placeholder="Linked In Profile Link"
                 className="block text-sm py-3 px-4  rounded-lg w-full border outline-none"
                 type="text"
-                {...register("linked-in",)}
+                {...register("linkedIn",{ required: true})}
               />
               {/* <input
               placeholder="Photo URL"
@@ -103,6 +131,8 @@ const MyProfile = () => {
             </div>
           </div>
         </form>
+
+       
       </div>
     );
 };
