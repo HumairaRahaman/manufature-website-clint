@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 
 const AllOrderCard = ({ order, index }) => {
-  // const [value,setValue] = ([])
-  const [buttonText, setButtonText] = useState("");
-  const {_id, product, orderQuantity, price,orderStatus } = order;
+  const [value, setValue] = useState("");
+  const [buttonText, setButtonText] = useState("pending");
+  const { _id, product, orderQuantity, price, orderStatus } = order;
   // orderStatus = "sipping"
   // console.log(orderStatus);
 
@@ -15,36 +15,44 @@ const AllOrderCard = ({ order, index }) => {
   //   console.log(value);
   //  }
 
+  //     const handelStatus=(e)=>{
+  //       // e.preventDefault();
+  //      let  orderStatus = "sipping"
+  //   console.log(orderStatus);
+  //       const value = e
+  //       e = "sipping";
 
-    const handelStatus=(e)=>{
-      // e.preventDefault();
-     let  orderStatus = "sipping"
-  console.log(orderStatus);
-      const value = e
-      e = "sipping";
+  // console.log(value);
+  // console.log(e);
+  //     const status = {
+  //       orderStatus: orderStatus,
 
-console.log(value);
-console.log(e);
-    const status = {
-      orderStatus: orderStatus,
-      
-     };
+  //  };
 
-        fetch(`http://localhost:5000/orders/${_id}`,{
-            method: 'PUT',
-            headers: {
-              "content-type": "application/json",
-              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(status),
+  //     fetch(`http://localhost:5000/orders/${_id}`,{
+  //         method: 'PUT',
+  //         headers: {
+  //           "content-type": "application/json",
+  //           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  //         },
+  //         body: JSON.stringify(status),
 
-        }).then(res=>res.json())
-        .then(data=>{
-            
-            console.log(data);
-        })
-      }
-  
+  //     }).then(res=>res.json())
+  //     .then(data=>{
+
+  //         console.log(data);
+  //     })
+  //   }
+  const handelStatus = () => {
+    if (true) {
+      let getValue = localStorage.getItem("buttonText");
+      setButtonText(getValue)
+    }
+  };
+
+  // setValue(getValue)
+  // console.log(getValue);
+  localStorage.setItem("buttonText", "sipping");
   return (
     <tr>
       <th>{index + 1}</th>
@@ -67,13 +75,11 @@ console.log(e);
           <div>
             <p>
               <input
-              type="submit"
-                onClick={() => handelStatus("paid")}
+                type="submit"
+                onClick={() => handelStatus(buttonText)}
                 className="btn btn-xs  text-success"
-                value="paid"
+                value={buttonText}
               />
-                
-              
             </p>
 
             {/* <p>

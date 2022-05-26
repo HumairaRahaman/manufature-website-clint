@@ -2,7 +2,7 @@ import React from "react"
 
 const ManageProductCard = ({deletingProduct, product, index, setDeletinProduct,refetch }) => {
   const { _id,name, img, price, a_quantity,email } = product;
-  console.log(product._id);
+
 //  const {name,email}=deletingDoctor
  
 
