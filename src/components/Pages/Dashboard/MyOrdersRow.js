@@ -53,6 +53,27 @@ console.log(myOrder);
                       </label>
                       </>
                   )}
+                   {price && paid && (
+          <div>
+            <p>
+              <input
+              type="submit"
+                
+                className="btn btn-xs  text-success"
+                value="paid"
+              />
+                
+              
+            </p>
+
+            <p>
+                        Transaction id:{" "}
+                        <span className=" block text-2xs sm:text-sm text-success">
+                          {transactionId}
+                        </span>{" "}
+                      </p>
+          </div>
+        )}
                 </td>
               
               </tr>

@@ -9,32 +9,47 @@ const AddUserInfo = ({ product }) => {
   const [user] = useAuthState(auth);
   const { register, handleSubmit, reset } = useForm();
   const [inputOrder, setInputOrder] = useState({});
-  const [inputQuantity, setQuantity] = useState('');
+  const [counter, setCounter] = useState(o_quantity);
 
-  console.log(parseInt(inputQuantity));
-
-  const handelValue = (e) => {
-    e.preventDefault();
-    setQuantity(e.target.value);
-    console.log(e.target.value);
+  const handleClick1 = () => {
+    if(parseInt(a_quantity)>parseInt(counter) ){
+      setCounter(parseInt(counter) + 1);
+    }
+    
   };
+
+  const handleClick2 = () => {
+    if(parseInt(o_quantity) < parseInt(counter)){
+      setCounter(parseInt(counter) - 1);
+  }
+    
+  };
+
+  
+
+  
+
+  
+
+ 
 
   const onSubmit = (data, e) => {
     e.preventDefault();
     const orderQuantity = data.order;
     console.log(orderQuantity);
 
-    if (orderQuantity > a_quantity || orderQuantity < o_quantity ) {
+    if (orderQuantity > a_quantity || orderQuantity < o_quantity) {
       toast.error("plz Input the write value", {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 4000,
       });
       return;
     } else {
+      
       const userOrder = {
         orderId: _id,
         product: name,
-        orderQuantity: inputQuantity,
+        orderQuantity: counter,
         price,
         user: user.email,
         userName: user.displayName,
@@ -57,12 +72,7 @@ const AddUserInfo = ({ product }) => {
             position: toast.POSITION.TOP_CENTER,
             autoClose: 4000,
           });
-          // if((data.order > a_quantity && data.order < o_quantity ) ||data.order > a_quantity || data.order < o_quantity ){
-
-          // }
-          // else{
-          //
-          // }
+         
         });
     }
     setInputOrder(data);
@@ -112,14 +122,19 @@ const AddUserInfo = ({ product }) => {
               type="number"
               {...register("phone")}
             />
-            <input
-              onChange={handelValue}
-              value={inputQuantity}
-              placeholder="Order Quantity"
-              className="block text-sm py-3 px-4  rounded-lg w-full border outline-none"
-              type="text"
-              // {...register("order")}
-            />
+            <label class="input-group">
+              <span onClick={handleClick2}>-</span>
+              <input
+                // onClick={handelValue}
+                readOnly
+                value={counter}
+                placeholder="Order Quantity"
+                className="block text-sm py-3 px-4  rounded-lg w-full border-0 text-center shadow shadow-lime-100 bg-lime-50 outline-none"
+                type="number"
+                // {...register("order")}
+              />
+              <span onClick={handleClick1}>+</span>
+            </label>
             {/* <input
               placeholder="Photo URL"
                 className="block text-sm py-3 px-4  rounded-lg w-full border outline-none"
@@ -127,13 +142,13 @@ const AddUserInfo = ({ product }) => {
                 {...register("img")}
                 disabled={o_quantity > a_quantity}
               /> */}
+
             <div className="text-center mt-6">
               {
                 // inputOrder?.order > a_quantity
-                parseInt(inputQuantity) < parseInt(o_quantity) ||
-                parseInt(inputQuantity) > parseInt(a_quantity) ||
-                inputQuantity === ''
-                 ? (
+                parseInt(counter) < parseInt(o_quantity) ||
+                parseInt(counter) > parseInt(a_quantity) ||
+                counter === "" ? (
                   <input
                     disabled
                     className="font-bold  py-4 px-14 text-gray-800 rounded-full  bg-gray-400 "

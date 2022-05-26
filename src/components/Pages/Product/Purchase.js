@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
 import { useParams } from "react-router-dom"
-import { toast, ToastContainer } from "react-toastify"
+import { toast } from "react-toastify"
 import useProductDetails from "../../../hooks/useProductDetails"
 import AddUserInfo from "./AddUserInfo"
 
@@ -74,7 +74,7 @@ const Purchase = () => {
         <div className=" flex flex-col gap-4 justify-between mx-4">
           <div className=" flex-shrink-0 mx-auto items-center flex">
             <img
-              className="mx-auto object-cover rounded-lg bg-cover  w-full h-64 "
+              className="mx-auto object-cover rounded-lg bg-cover  w-40 h-40 "
               src={product.img}
               alt="coin"
             />
@@ -92,17 +92,17 @@ const Purchase = () => {
             <p className="flex items-start font-bold text-transparent bg-clip-text bg-gradient-to-br from-cyan-500 to-blue-500 text-center cursor-pointer">
               Quantity: {product.o_quantity} (min)
             </p>
-            <p className="flex items-start font-bold text-transparent bg-clip-text bg-gradient-to-br from-amber-500 to-gray-500 text-center cursor-pointer">
+            <p className="flex items-start ml-4 font-bold text-transparent bg-clip-text bg-gradient-to-br from-amber-500 to-gray-500 text-center cursor-pointer">
            Available Quantity{product.a_quantity} <span></span>
             </p>
           </div>
-          <button
+          {/* <button
             onClick={() => updateHandel(product._id)}
             className=" py-1 px-6 mx-24 text-white font-semibold rounded-full rounded-tr-none  bg-gradient-to-r from-slate-400 via-blue-400 to-gray-400 hover:bg-gradient-to-r hover:from-slate-500 hover:via-lime-500 hover:to-gray-600 "
           >
             <ToastContainer></ToastContainer>
             Delivered
-          </button>
+          </button> */}
         </div>
       </div>
       

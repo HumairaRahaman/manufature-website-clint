@@ -64,9 +64,9 @@ const MyProfile = () => {
           (i,index) =>
           
             i?.email === user?.email && (
-              <>
+              <div key={index}>
              
-                <form onSubmit={handleSubmit(onSubmit)} className="lg:my-8 mb-64 lg:mb-8 md:mx-28 mx-8 lg:mx-28">
+                <form  onSubmit={handleSubmit(onSubmit)} className="lg:my-8 mb-64 lg:mb-8 md:mx-28 mx-8 lg:mx-28">
                   <div className="py-8 px-10 m-8 sm:m-0 sm:py-12 sm:px-12 bg-white  rounded-2xl shadow-xl ">
                     <div>
                       <h1 className="text-3xl text-center mb-6 text-transparent bg-clip-text font-bold bg-gradient-to-br from-amber-500 to-gray-500  cursor-pointe">
@@ -131,7 +131,7 @@ const MyProfile = () => {
                     </div>
                   </div>
                 </form>
-              </>
+              </div>
             )
         )}
       </div>
