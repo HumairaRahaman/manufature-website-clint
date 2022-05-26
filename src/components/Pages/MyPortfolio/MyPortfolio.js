@@ -7,44 +7,53 @@ const MyPortfolio = () => {
         <div className="">
           <div>
               <>
-            <h1 className="text-6xl mb-8 font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-500 to-cyan-500 text-center cursor-pointer">
+            {/* <h1 className="text-6xl mb-8 font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-500 to-cyan-500 text-center cursor-pointer">
               Humaira Rahaman
-            </h1>
+            </h1> */}
             <img className=" h-1/2 " src={img} alt="" />
-            <h3 className="text-4xl mt-8 font-bold text-black opacity-70  text-center mb-4 cursor-pointer">
-              Become a full-stack web developer😎
-            </h3>
-            <p className=" mx-8 mb-6 text-3xl text-cyan-600 mt-16">
-              How to achieve my goals🔥?
+            <div  className=' rounded-lg shadow-lg shadow-purple-50 border-purple-300 border-2 px-4 py-8 my-4 mx-8'>
+            <p className=" mx-8 mb-6 text-3xl  mt-16">
+              <span className='bg-cyan-400 text-white p-1 rounded shadow-cyan-100 shadow-md'>Name:</span> <span className='text-amber-500'>Humaira Rahaman</span>
             </p>
             <p className=" mx-8 mb-6 text-3xl text-cyan-600 mt-16">
-              name
+             <span className='bg-purple-400 text-white p-1 rounded shadow-purple-100 shadow-md'>Email:</span> <span className='text-amber-500'>humairamitul@gmail.com</span> 
             </p>
             <p className=" mx-8 mb-6 text-3xl text-cyan-600 mt-16">
-             email
+            <span className='bg-blue-400 text-white p-1 rounded shadow-blue-100 shadow-md'>Education:</span> <span className='text-amber-500'>BSC In CSE</span>
             </p>
-            <p className=" mx-8 mb-6 text-3xl text-cyan-600 mt-16">
-            educational background,
-            </p>
-            <p className=" mx-8 mb-6 text-3xl text-cyan-600 mt-16">
-            ist of technologies or skills you have as a web developer
-            </p>
-            <p className=" mx-8 mb-6 text-3xl text-cyan-600 mt-16">
-            Add links of three of your projects (live website links).
-            </p>
-            <p className="text-blue-800 mx-8 ">
-              I set my routine and try to use my time efficiently. I am learning
-              many other topics and Patrice properly day by day. I leave all of my
-              other social work to achieve my goals. I am very passionate and
-              highly interested in working in a reputed and leading hi-tech
-              industry . Since I am a computer science graduate, I want to build
-              my career by using cutting-edge technology and working in a
-              development -oriented job. I have more than a year of work
-              experience as a web designer and developer. I am highly skilled in
-              HTML5, CSS3, Bootstrap 4, Tailwind, etc. I am also interested in
-              Shopify's problem -solving. I am confident that I will be able to
-              achieve my objectives and join the best software company.
-            </p>
+            </div>
+           
+            <div className=' rounded-lg shadow-lg border-amber-300 shadow-amber-50 border-2 px-4 py-8 my-4 mx-8' >
+            <span className="space-y-2 text-3xl text-blue-600 mt-16">Skills:</span>
+            <div className='flex flex-wrap'>
+              <span className='text-md mx-1 my-1 font-bold text-white bg-cyan-600 rounded-full py-1/2 px-2'>HTML</span>
+              <span className='text-md mx-1 my-1 font-bold text-white bg-amber-600 rounded-full py-1/2 px-2'>CSS</span>
+              <span className='text-md mx-1 my-1 font-bold text-white bg-indigo-600 rounded-full py-1/2 px-2'>Tailwind Css</span>
+              <span className='text-md mx-1 my-1 font-bold text-white bg-gray-600 rounded-full py-1/2 px-2'>NoSQl</span>
+              <span className='text-md mx-1 my-1 font-bold text-white bg-lime-600 rounded-full py-1/2 px-2'>Java Script</span>
+              <span className='text-md mx-1 my-1 font-bold text-white bg-yellow-600 rounded-full py-1/2 px-2'>Node.js</span>
+              <span className='text-md mx-1 my-1 font-bold text-white bg-pink-600 rounded-full py-1/2 px-2'>Mongodb</span>
+              <span className='text-md mx-1 my-1 font-bold text-white bg-green-600 rounded-full py-1/2 px-2'>React</span>
+              <span className='text-md mx-1 my-1 font-bold text-white bg-purple-600 rounded-full py-1/2 px-2'>Bootstrap</span>
+              <span className='text-md mx-1 my-1 font-bold text-white bg-blue-600 rounded-full py-1/2 px-2'>AJAX</span>
+              <span className='text-md mx-1 my-1 font-bold text-white bg-violet-600 rounded-full py-1/2 px-2'>C</span>
+              <span className='text-md mx-1 my-1 font-bold text-white bg-sky-600 rounded-full py-1/2 px-2'>C++</span>
+              <span className='text-md mx-1 my-1 font-bold text-white bg-fuchsia-600 rounded-full py-1/2 px-2'>jQuery</span>
+              </div>  
+            </div>
+            <div className=' rounded-lg border-lime-300 shadow-lg shadow-lime-50 border-2 px-4 py-8 my-4 mx-8' >
+            <span className="space-y-2 text-3xl text-lime-600 mt-16">Projects Links:</span>
+            <div className='flex flex-col'>
+              <span className='text-md mx-1 my-1 font-bold  text-cyan-600 rounded-full py-1/2 px-2'>1.vehicle_zone_inventory:<span className='text-amber-500'>(https://vehicle-zone-inventory.web.app)</span></span>
+              <span className='text-md mx-1 my-1 font-bold  text-cyan-600 rounded-full py-1/2 px-2'>2.Nutritionist_Service:<span className='text-amber-500'>(https://ind-nutri-fair.web.app)</span></span>
+              <span className='text-md mx-1 my-1 font-bold  text-cyan-600 rounded-full py-1/2 px-2'>3.crypto_cafe:<span className='text-amber-500'>(https://cripto-cafe.netlify.app)</span></span>
+           
+             
+              </div>  
+            </div>
+           
+            
+         
            
             </>
           </div>

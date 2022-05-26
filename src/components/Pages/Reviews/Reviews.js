@@ -5,7 +5,7 @@ const Reviews = ({ review }) => {
   return (
     <div>
      
-      <div className=" shadow-lg rounded-2xl w-auto bd-white p-4">
+      <div className=" shadow-lg rounded-2xl w-[340px] bd-white p-4">
         <div className="flex flex-col gap-3 justify-between items-center">
           <div className=" flex-shrink-0">
             <img
@@ -17,7 +17,7 @@ const Reviews = ({ review }) => {
 
           <span className=" text-gray-600 font-medium">{name}</span>
           <span className=" text-gray-400 text-lg">{rating}<span>⭐</span></span>
-          <div className="  overflow-hidden">
+          <div className=" mx-2  overflow-hidden">
             <span className=" text-gray-400 text-lg">
               {reviews?.length > 80 ? reviews?.slice(0, 80) + "..." : reviews}
             </span>

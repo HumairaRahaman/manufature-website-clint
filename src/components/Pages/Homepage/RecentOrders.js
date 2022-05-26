@@ -37,34 +37,34 @@ const RecentOrders = () => {
         <tbody className=" bg-yellow-50   text-left">
           <tr className=" border-b-2 border-amber-100">
            
-           <td className="py-4 px-4 font-semibold  text-amber-900">Audi Q4 e-tron</td>
-            <td className="hidden sm:inline-flex md:inline-flex font-semibold  text-amber-900">$400000</td>
+           <td className="py-4 px-4 font-semibold  text-amber-900">Needle Pen Clock Oiler</td>
+            <td className="hidden sm:inline-flex md:inline-flex font-semibold  text-amber-900">$40</td>
             <td className="font-semibold text-lime-500">paid</td>
             <td><span className="sm:bg-lime-500 text-lime-600 text-xs sm:text-white px-2 py-1 font-semibold rounded-xl">Delivered</span></td>
            
             
           </tr>
           <tr className=" border-b-2 border-amber-100">
-            <td className="py-4 px-4 font-semibold  text-amber-900">BMW i7</td>
-            <td className="hidden sm:inline-flex font-semibold  text-amber-900 ">$3489000</td>
+            <td className="py-4 px-4 font-semibold  text-amber-900">Keystone Clock Oil</td>
+            <td className="hidden sm:inline-flex font-semibold  text-amber-900 ">$34</td>
             <td className="font-semibold text-orange-400">Due</td>
             <td><span className="sm:bg-yellow-400 text-xs text-yellow-500 sm:text-white px-2 py-1 font-semibold rounded-xl">Pending</span></td>
           </tr>
           <tr className=" border-b-2 border-amber-100">
-            <td className="py-4 px-4 font-semibold  text-amber-900">Lamborghini</td>
-            <td className="hidden sm:inline-flex font-semibold  text-amber-900">$3456000</td>
+            <td className="py-4 px-4 font-semibold  text-amber-900">Clock Tweezer Assortment</td>
+            <td className="hidden sm:inline-flex font-semibold  text-amber-900">$56</td>
             <td className="font-semibold text-lime-500">paid</td>
             <td><span className="sm:bg-red-600 text-red-600 text-xs sm:text-white px-2 py-1 font-semibold rounded-xl">Return</span></td>
           </tr>
           <tr className=" border-b-2 border-amber-100">
-            <td className="py-4 px-4 font-semibold  text-amber-900">Mercedez GLB SUV</td>
-            <td className="hidden sm:inline-flex font-semibold  text-amber-900">$340000</td>
+            <td className="py-4 px-4 font-semibold  text-amber-900">Clock Cleaning Kit</td>
+            <td className="hidden sm:inline-flex font-semibold  text-amber-900">$40</td>
             <td className="font-semibold text-orange-400">Due</td>
             <td><span className="sm:bg-cyan-600 text-cyan-600 text-xs sm:text-white px-2 py-1 font-semibold rounded-xl">In Progress</span></td>
           </tr>
           <tr className=" border-b-2 border-amber-100">
-            <td className="py-4 px-4 font-semibold  text-amber-900">LAND ROVER DISCOVERY</td>
-            <td className="hidden sm:inline-flex font-semibold  text-amber-900">$3450000</td>
+            <td className="py-4 px-4 font-semibold  text-amber-900">Long Screw Drivers</td>
+            <td className="hidden sm:inline-flex font-semibold  text-amber-900">$50</td>
             <td className="font-semibold text-lime-500">paid</td>
             <td><span className="sm:bg-red-600 text-red-600 text-xs sm:text-white px-2 py-1 font-semibold rounded-xl">Return</span></td>
           </tr>

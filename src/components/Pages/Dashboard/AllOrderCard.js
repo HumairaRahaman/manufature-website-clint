@@ -30,7 +30,7 @@ console.log(e);
       
      };
 
-        fetch(`http://localhost:5000/orders/${_id}`,{
+        fetch(`https://safe-headland-62485.herokuapp.com/orders/${_id}`,{
             method: 'PUT',
             headers: {
               "content-type": "application/json",
@@ -48,7 +48,7 @@ console.log(e);
   return (
     <tr>
       <th>{index + 1}</th>
-      <td>{product}</td>
+      <td className=" text-xs sm:text-md">{product}</td>
       <td className=" sm:table-cell hidden">{orderQuantity}</td>
       <td className=" lg:table-cell hidden">${price}</td>
       {/* <td><button className="btn btn-xs">pending</button>

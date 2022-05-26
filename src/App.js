@@ -7,6 +7,7 @@ import Login from "./components/Login/Login"
 import RequireAdmin from "./components/Login/RequireAdmin"
 import RequireAuth from "./components/Login/RequireAuth"
 import SignUp from "./components/Login/SignUp"
+import Blogs from "./components/Pages/Blogs/Blogs"
 import AddProduct from "./components/Pages/Dashboard/AddProduct"
 import AddReview from "./components/Pages/Dashboard/AddReview"
 import AllOrders from "./components/Pages/Dashboard/AllOrders"
@@ -20,7 +21,6 @@ import Homepage from "./components/Pages/Homepage/Homepage"
 import MyPortfolio from "./components/Pages/MyPortfolio/MyPortfolio"
 import AllProduct from "./components/Pages/Product/AllProduct"
 import Purchase from "./components/Pages/Product/Purchase"
-import AllReviews from "./components/Pages/Reviews/AllReviews"
 import Footer from "./components/Shared/Footer/Footer"
 import Header from "./components/Shared/Header/Header"
 
@@ -30,7 +30,7 @@ const App = () => {
       <Header>
       <Routes>
         <Route path="/" element={<Homepage></Homepage>}></Route>
-        <Route path='/reviews' element={<AllReviews></AllReviews>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/products' element={<AllProduct></AllProduct>}></Route>
         <Route path='/myPortfolio' element={<MyPortfolio></MyPortfolio>}></Route>
 

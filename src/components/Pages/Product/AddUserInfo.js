@@ -41,7 +41,7 @@ const AddUserInfo = ({ product }) => {
         phone: data.phone,
         orderStatus: "",
       };
-      const url = `http://localhost:5000/orders`;
+      const url = `https://safe-headland-62485.herokuapp.com/orders`;
       fetch(url, {
         method: "POST",
         headers: {

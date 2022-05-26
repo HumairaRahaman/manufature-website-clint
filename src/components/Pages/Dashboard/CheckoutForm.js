@@ -14,7 +14,7 @@ const CheckoutForm = ({ order }) => {
  
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://safe-headland-62485.herokuapp.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -81,7 +81,7 @@ const CheckoutForm = ({ order }) => {
 
       };
 
-          fetch(`http://localhost:5000/orders/${_id}`,{
+          fetch(`https://safe-headland-62485.herokuapp.com/orders/${_id}`,{
               method: 'PATCH',
               headers: {
                 "content-type": "application/json",

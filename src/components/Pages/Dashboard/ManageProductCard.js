@@ -2,14 +2,16 @@ import React from "react"
 
 const ManageProductCard = ({ product, index, handelDelete }) => {
   const { _id,name, img, price, a_quantity } = product;
+  console.log(product._id);
+  console.log(handelDelete._id);
   return (
     <tr>
       <th>{index + 1}</th>
-      <td>{name}</td>
+      <td className=" text-xs sm:text-md">{name}</td>
 
-      <td>{a_quantity}</td>
-      <td className="xs:table-cell hidden">${price}</td>
-      <td>
+      <td className="md:table-cell hidden ">{a_quantity}</td>
+      <td className="lg:table-cell hidden">${price}</td>
+      <td className=" sm:table-cell hidden">
         <div class="avatar">
           <div class="w-16 rounded">
             <img
@@ -25,8 +27,8 @@ const ManageProductCard = ({ product, index, handelDelete }) => {
           Delete
         </label>
 
-        <input type="checkbox" id="delete-modal" className="modal-toggle" />
-        <div className="modal modal-bottom sm:modal-middle">
+        <input type="checkbox" id="delete-modal" className="modal-toggle " />
+        <div className="modal modal-middle sm:modal-middle ">
           <div className="modal-box">
             <h3 className="font-bold text-lg text-orange-500">
               Are you sure you wants to Delete!

@@ -6,9 +6,10 @@ const ManageProducts = () => {
     const [products, setProducts] = useProduct([])
 
     const handelDelete = (id) => {
+      console.log(id);
    
       if (true) {
-        const url = `http://localhost:5000/products/${id}`;
+        const url = `https://safe-headland-62485.herokuapp.com/products/${id}`;
         fetch(url, {
           method: "DELETE",
           
@@ -33,9 +34,9 @@ const ManageProducts = () => {
             <tr>
               <th></th>
               <th>Name</th>
-              <th>orderQuantity</th>
-              <th className="xs:table-cell hidden">price</th>
-              <th>Image</th>
+              <th className="md:table-cell hidden">AvailableQuantity</th>
+              <th className="lg:table-cell hidden">price</th>
+              <th className='sm:table-cell hidden'>Image</th>
               <th></th>
             </tr>
           </thead>

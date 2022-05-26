@@ -4,43 +4,15 @@ import useMyOrder from "../../../hooks/useMyOrder"
 
 const MyOrders = () => {
   const [myOrders, setMyOrders] = useMyOrder([]);
-  // const [myItems, setMyItems] = useState([]);
-  // const [userOrders, setUserOrders] = useState([]);
-
-  // const [user] = useAuthState(auth);
-
-  // const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   if (user) {
-  //     fetch(`http://localhost:5000/orders?user=${user.email}`, {
-  //       method: "GET",
-  //       headers: {
-  //         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-  //       },
-  //     })
-  //       .then((res) => {
-  //         console.log("res", res);
-  //         if (res.status === 401 || res.status === 403) {
-  //           signOut(auth);
-  //           localStorage.removeItem("accessToken");
-  //           navigate("/");
-  //         }
-
-  //         return res.json();
-  //       })
-  //       .then((data) => {
-  //         setUserOrders(data);
-  //       });
-  //   }
-  // }, [user]);
+  
+  
 
   //Delete
 
   const handelDelete = (id) => {
    
     if (true) {
-      const url = `http://localhost:5000/orders/${id}`;
+      const url = `https://safe-headland-62485.herokuapp.com/orders/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -83,11 +55,11 @@ const MyOrders = () => {
                   {myOrder.price && !myOrder.paid && (
                     <>
                       <Link to={`/dashboard/payment/${myOrder._id}`}>
-                        <button className=" btn btn-xs btn-success">Pay</button>
+                        <button className=" btn btn-xs text-white btn-success">Pay</button>
                       </Link>
                       
                     
-                        <label htmlFor="delete-modal" className="btn btn-xs bg-red-600 ml-3">
+                        <label htmlFor="delete-modal" className="btn btn-xs text-white bg-red-600 ml-3">
                         Delete
                         </label>
 
