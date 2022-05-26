@@ -56,7 +56,7 @@ const AllOrderCard = ({ order, index }) => {
             <p>
               <input
                 type="submit"
-                onClick={(e) => handelStatus(e.target.value)}
+                onClick={(e) => handelStatus(e)}
                 className="btn btn-xs  text-success"
                 value={buttonText}
               />
