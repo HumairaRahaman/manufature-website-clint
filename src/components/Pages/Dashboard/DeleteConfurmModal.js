@@ -1,11 +1,11 @@
-import React from 'react'
-import { toast } from 'react-toastify'
+import React from 'react';
+import { toast } from 'react-toastify';
 
 const DeleteConfurmModal = ({deletingProduct,refetch,setDeletinProduct}) => {
     const {name,_id} = deletingProduct;
     console.log(name);
     const handelDelete = () => {
-        fetch(`http://localhost:5000/products/${_id}`,{
+        fetch(`https://safe-headland-62485.herokuapp.com/products/${_id}`,{
           method: "DELETE",
           headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,

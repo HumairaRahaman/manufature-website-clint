@@ -13,7 +13,7 @@ const ManageProducts = () => {
     isLoading,
     refetch,
   } = useQuery("products", () =>
-    fetch("http://localhost:5000/products", {
+    fetch("https://safe-headland-62485.herokuapp.com/products", {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
@@ -27,7 +27,7 @@ const ManageProducts = () => {
   //   console.log(id);
 
   //   if (true) {
-  //     const url = `http://localhost:5000/products/${id}`;
+  //     const url = `https://safe-headland-62485.herokuapp.com/products/${id}`;
   //     fetch(url, {
   //       method: "DELETE",
 

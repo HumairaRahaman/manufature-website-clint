@@ -1,40 +1,32 @@
-import React from 'react'
-import { toast } from 'react-toastify'
+import React from "react"
+import { toast } from "react-toastify"
 
-const DeleteOrderModal = ({setDeletingOrder,deletingOrder,myOrders} ) => {
-    console.log(myOrders[0]._id);
-const {product,_id} = deletingOrder;
-console.log(_id);
-    const handelDelete = () => {
-
-if(myOrders[0]._id === _id){
+const DeleteOrderModal = ({ setDeletingOrder, deletingOrder, myOrders }) => {
+  console.log(myOrders[0]._id);
+  const { product, _id } = deletingOrder;
+  console.log(_id);
+  const handelDelete = () => {
+    // if (myOrders[0]._id === _id) {
+      
+    // } 
     if (true) {
-        const url = `http://localhost:5000/orders/${_id}`;
-        fetch(url, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-              if (data.deletedCount) {
-                  toast.success(`Order:${product} is Deleted.`);
-                  setDeletingOrder(null)
-                  // refetch();
-                }
-          });
-}
-        
-        }
-        else{
-            return
-        }
-      };
-    return (
-        <>
-        <input
-        type="checkbox"
-        id="delete-modal"
-        className="modal-toggle"
-      />
+      const url = `https://safe-headland-62485.herokuapp.com/orders/${_id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount) {
+            toast.success(`Order:${product} is Deleted.`);
+            setDeletingOrder(null);
+            // refetch();
+          }
+        });
+    }
+  };
+  return (
+    <>
+      <input type="checkbox" id="delete-modal" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <h3 className="font-bold text-lg text-orange-500">
@@ -42,10 +34,7 @@ if(myOrders[0]._id === _id){
           </h3>
 
           <div className="modal-action">
-            <label
-              htmlFor="delete-modal"
-              className="btn text-white bg-red-600"
-            >
+            <label htmlFor="delete-modal" className="btn text-white bg-red-600">
               no
             </label>
             <label
@@ -58,8 +47,8 @@ if(myOrders[0]._id === _id){
           </div>
         </div>
       </div>
-      </>
-    );
+    </>
+  );
 };
 
 export default DeleteOrderModal;

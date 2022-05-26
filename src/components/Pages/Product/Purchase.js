@@ -18,7 +18,7 @@ const Purchase = () => {
 
   const updateHandel = async (id) => {
     setProductQuantity(productQuantity - 1);
-    const url = `http://localhost:5000/products/${id}`;
+    const url = `https://safe-headland-62485.herokuapp.com/products/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -47,7 +47,7 @@ const Purchase = () => {
   //   });
   //   setProductQuantity(productQuantity + value);
   //   console.log(value);
-  //   const url = `http://localhost:5000/products/${id}`;
+  //   const url = `https://safe-headland-62485.herokuapp.com/products/${id}`;
   //   fetch(url, {
   //     method: "PUT",
   //     headers: {

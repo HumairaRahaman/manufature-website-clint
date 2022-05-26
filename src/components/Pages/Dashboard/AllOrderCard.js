@@ -2,56 +2,36 @@ import React, { useState } from "react"
 
 const AllOrderCard = ({ order, index }) => {
   const [value, setValue] = useState("");
-  const [buttonText, setButtonText] = useState("pending");
-  const { _id, product, orderQuantity, price, orderStatus } = order;
-  // orderStatus = "sipping"
-  // console.log(orderStatus);
 
-  //  const handelStatus = (e)=>{
-  //    e.preventDefault();
-  //   //  value = true;
-  //   setValue(e.target.value);
+  let { _id, product, orderQuantity, price, orderStatus } = order;
+  const [buttonText, setButtonText] = useState(orderStatus);
 
-  //   console.log(value);
-  //  }
+  console.log(order);
 
-  //     const handelStatus=(e)=>{
-  //       // e.preventDefault();
-  //      let  orderStatus = "sipping"
-  //   console.log(orderStatus);
-  //       const value = e
-  //       e = "sipping";
+  const handelStatus = (e) => {
+    e.preventDefault();
+    orderStatus = "sipping";
 
-  // console.log(value);
-  // console.log(e);
-  //     const status = {
-  //       orderStatus: orderStatus,
+    
+    const status = {
+      orderStatus: orderStatus,
+    };
 
-  //  };
-
-  //     fetch(`http://localhost:5000/orders/${_id}`,{
-  //         method: 'PUT',
-  //         headers: {
-  //           "content-type": "application/json",
-  //           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-  //         },
-  //         body: JSON.stringify(status),
-
-  //     }).then(res=>res.json())
-  //     .then(data=>{
-
-  //         console.log(data);
-  //     })
-  //   }
-  const handelStatus = () => {
-    if (true) {
-      let getValue = localStorage.getItem("buttonText");
-      setButtonText(getValue)
-    }
+    fetch(`https://safe-headland-62485.herokuapp.com/orders/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify(status),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setButtonText("sipping");
+        console.log(data);
+      });
   };
 
-  // setValue(getValue)
-  // console.log(getValue);
   localStorage.setItem("buttonText", "sipping");
   return (
     <tr>
@@ -76,7 +56,7 @@ const AllOrderCard = ({ order, index }) => {
             <p>
               <input
                 type="submit"
-                onClick={() => handelStatus(buttonText)}
+                onClick={(e) => handelStatus(e.target.value)}
                 className="btn btn-xs  text-success"
                 value={buttonText}
               />

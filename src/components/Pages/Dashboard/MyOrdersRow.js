@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MyOrdersRow = ({index,myOrder,deletingOrder,setDeletingOrder}) => {
     const {_id, product,orderQuantity,price,paid,transactionId} = myOrder;
@@ -8,7 +8,7 @@ console.log(deletingOrder);
 console.log(myOrder);
 //     const handelDelete = () => {
 //     if (true) {
-//       const url = `http://localhost:5000/orders/${_id}`;
+//       const url = `https://safe-headland-62485.herokuapp.com/orders/${_id}`;
 //       fetch(url, {
 //         method: "DELETE",
 //       })

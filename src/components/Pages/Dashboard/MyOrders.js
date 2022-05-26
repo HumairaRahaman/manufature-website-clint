@@ -11,7 +11,7 @@ const MyOrders = () => {
   //Delete
   // const handelDelete = () => {
   //   if (true) {
-  //     const url = `http://localhost:5000/orders/${_id}`;
+  //     const url = `https://safe-headland-62485.herokuapp.com/orders/${_id}`;
   //     fetch(url, {
   //       method: "DELETE",
   //     })

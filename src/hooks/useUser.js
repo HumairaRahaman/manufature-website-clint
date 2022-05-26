@@ -10,7 +10,7 @@ const useUser = () => {
     
     useEffect(()=>{
         
-       fetch(`http://localhost:5000/user/${email}`,{
+       fetch(`https://safe-headland-62485.herokuapp.com/user/${email}`,{
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
