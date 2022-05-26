@@ -8,7 +8,7 @@ const useOrder = () => {
     
     useEffect(()=>{
         
-       fetch('https://safe-headland-62485.herokuapp.com/order' 
+       fetch('http://localhost:5000/order' 
     ,{
     //     method: "GET",
     //     headers: {

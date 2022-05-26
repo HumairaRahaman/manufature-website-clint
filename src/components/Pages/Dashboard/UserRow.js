@@ -1,11 +1,11 @@
-import React from "react"
-import { toast } from "react-toastify"
+import React from "react";
+import { toast } from "react-toastify";
 
 const UserRow = ({ user,index,refetch }) => {
     const {email,role, name} = user;
 
     const makeAdmin = () =>{
-        fetch(`https://safe-headland-62485.herokuapp.com/user/admin/${email}`,{
+        fetch(`http://localhost:5000/user/admin/${email}`,{
             method: 'PUT',
             headers:{
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

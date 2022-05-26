@@ -1,9 +1,12 @@
 import React from "react"
 
-const ManageProductCard = ({ product, index, handelDelete }) => {
-  const { _id,name, img, price, a_quantity } = product;
+const ManageProductCard = ({deletingProduct, product, index, setDeletinProduct,refetch }) => {
+  const { _id,name, img, price, a_quantity,email } = product;
   console.log(product._id);
-  console.log(handelDelete._id);
+//  const {name,email}=deletingDoctor
+ 
+
+ 
   return (
     <tr>
       <th>{index + 1}</th>
@@ -21,36 +24,13 @@ const ManageProductCard = ({ product, index, handelDelete }) => {
           </div>
         </div>
       </td>
-
+      {/* */}
       <td>
-        <label htmlFor="delete-modal" className="btn btn-xs text-white bg-red-600 ml-3">
+        <label onClick={() => setDeletinProduct(product)}   htmlFor="delete-modal" className="btn btn-xs text-white bg-red-600 ml-3">
           Delete
         </label>
 
-        <input type="checkbox" id="delete-modal" className="modal-toggle " />
-        <div className="modal modal-middle sm:modal-middle ">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg text-orange-500">
-              Are you sure you wants to Delete!
-            </h3>
-
-            <div className="modal-action">
-              <label
-                htmlFor="delete-modal"
-                className="btn text-white bg-red-600"
-              >
-                no
-              </label>
-              <label
-                onClick={() => handelDelete(_id)}
-                htmlFor="delete-modal"
-                className="btn text-white bg-green-600"
-              >
-                ok
-              </label>
-            </div>
-          </div>
-        </div>
+        
       </td>
     </tr>
   );

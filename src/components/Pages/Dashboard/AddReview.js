@@ -39,7 +39,7 @@ const AddReview = () => {
 
           //send to your database
 
-          fetch("https://safe-headland-62485.herokuapp.com/review", {
+          fetch("http://localhost:5000/review", {
             method: "POST",
             headers: {
               "content-type": "application/json",

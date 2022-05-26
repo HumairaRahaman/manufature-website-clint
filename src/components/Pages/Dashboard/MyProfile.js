@@ -35,7 +35,7 @@ const MyProfile = () => {
 
     // if()
 
-    fetch(`https://safe-headland-62485.herokuapp.com/user/${email}`, {
+    fetch(`http://localhost:5000/user/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

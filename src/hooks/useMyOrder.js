@@ -12,7 +12,7 @@ const useMyOrder = () =>{
     const navigate = useNavigate();
     useEffect(() => {
         if (user) {
-          fetch(`https://safe-headland-62485.herokuapp.com/orders?user=${user.email}`, {
+          fetch(`http://localhost:5000/orders?user=${user.email}`, {
             method: "GET",
             headers: {
               authorization: `Bearer ${localStorage.getItem("accessToken")}`,

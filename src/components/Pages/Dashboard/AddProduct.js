@@ -1,6 +1,6 @@
-import React from 'react'
-import { useForm } from 'react-hook-form'
-import { toast } from 'react-toastify'
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 const AddProduct = () => {
     const {
@@ -35,7 +35,7 @@ const AddProduct = () => {
     
               //send to your database
     
-              fetch("https://safe-headland-62485.herokuapp.com/product", {
+              fetch("http://localhost:5000/product", {
                 method: "POST",
                 headers: {
                   "content-type": "application/json",

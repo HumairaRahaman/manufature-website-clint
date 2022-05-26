@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
 const useReview = () => {
     const [reviews, setReviews] = useState([])
     useEffect(()=>{
         
-        fetch('https://safe-headland-62485.herokuapp.com/reviews')
+        fetch('http://localhost:5000/reviews')
         .then(res=> res.json())
         .then(data => {
             setReviews(data)

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 
 const AllOrderCard = ({ order, index }) => {
   // const [value,setValue] = ([])
@@ -30,7 +30,7 @@ console.log(e);
       
      };
 
-        fetch(`https://safe-headland-62485.herokuapp.com/orders/${_id}`,{
+        fetch(`http://localhost:5000/orders/${_id}`,{
             method: 'PUT',
             headers: {
               "content-type": "application/json",

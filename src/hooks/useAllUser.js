@@ -8,7 +8,7 @@ const useAllUser = () => {
     
     useEffect(()=>{
         
-       fetch('https://safe-headland-62485.herokuapp.com/user',{
+       fetch('http://localhost:5000/user',{
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },

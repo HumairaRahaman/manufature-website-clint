@@ -1,11 +1,11 @@
-import React, { useEffect } from "react"
-import { useQuery } from "react-query"
-import Spinner from "../../Local/Spinner/Spinner"
-import UserRow from "./UserRow"
+import React, { useEffect } from "react";
+import { useQuery } from "react-query";
+import Spinner from "../../Local/Spinner/Spinner";
+import UserRow from "./UserRow";
 
 const Users = () => {
   const { data: users, isLoading,refetch } = useQuery("users", () =>
-    fetch("https://safe-headland-62485.herokuapp.com/user", {
+    fetch("http://localhost:5000/user", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
