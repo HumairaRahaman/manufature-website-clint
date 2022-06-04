@@ -8,7 +8,7 @@ import useAllUser from "../../../hooks/useAllUser"
 const MyProfile = () => {
   const [user] = useAuthState(auth);
   // const { userId } = useParams();
-  const [info] = useAllUser();
+  const [info] = useAllUser([]);
   // const [info ] = useUser({})
 
   const { register, handleSubmit, reset } = useForm();
@@ -18,10 +18,10 @@ const MyProfile = () => {
   const onSubmit = (data, e) => {
     const email = user?.email;
     const userName = user?.displayName;
-    const getAddress = data.address;
-    const getPhone = data.phone;
-    const getEducation = data.education;
-    const getLinkedIn = data.linkedIn;
+    const getAddress = data?.address;
+    const getPhone = data?.phone;
+    const getEducation = data?.education;
+    const getLinkedIn = data?.linkedIn;
 
     const ownData = {
       user: email,
